@@ -3,37 +3,42 @@ import React from 'react';
 import siteConfig from '../siteConfig';
 
 const AppWrapper = ({ children }) => {
+    const imageUrl = process.env.PUBLIC_URL + siteConfig.backgroundImageUrl;
+
     const styles = {
-        appWrapper: {
-            minHeight: '100vh',
-            position: 'relative',
-            // Changed from 'fixed' to 'scroll' (or just remove 'fixed')
-            // 'scroll' is the default attachment, image scrolls with page
-            background: `url(${process.env.PUBLIC_URL + siteConfig.backgroundImageUrl}) no-repeat center center`,
-            backgroundSize: 'cover', // Will cover the entire body/wrapper
+        // This div will just be a viewport-sized fixed background layer
+        backgroundLayer: {
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            zIndex: -1, // Behind everything
+            backgroundImage: `url(${imageUrl})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center center', // Or try 'top center' if image has important top elements
+            backgroundSize: 'cover',
+        },
+        // This div will contain the scrollable content
+        contentContainer: {
+            position: 'relative', // To allow z-indexing of children if needed
+            zIndex: 1,
+            minHeight: '100vh', // Ensure it can fill the viewport at least
             display: 'flex',
             flexDirection: 'column',
-        },
-        // Optional overlay, if you uncomment, make its position 'absolute' if AppWrapper is relative
-        // overlay: {
-        //     position: 'absolute', // If AppWrapper is relative and you want overlay to scroll with it
-        //     top: 0,
-        //     left: 0,
-        //     width: '100%',
-        //     height: '100%', // Might need to be 100% of content or use JS to match scroll height
-        //     backgroundColor: siteConfig.colors.backgroundOverlay,
-        //     zIndex: 1, // Just above background, below content
-        // }
+            // If you want content sections to show the fixed bg through them,
+            // they should have transparent or semi-transparent backgrounds.
+            // The body's #111 color will be the ultimate fallback.
+        }
     };
 
     return (
-        <div style={styles.appWrapper}>
-            {/* <div style={styles.overlay}></div> */}
-            {/* Content needs its own z-index to be above the overlay if used */}
-            <div style={{ position: 'relative', zIndex: 2, flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                {children}
+        <> {/* Use a fragment as we now have two sibling top-level divs */}
+            <div style={styles.backgroundLayer}></div>
+            <div style={styles.contentContainer}>
+                {children} {/* Header, main, Footer */}
             </div>
-        </div>
+        </>
     );
 };
 
