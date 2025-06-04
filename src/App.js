@@ -15,8 +15,7 @@ function App() {
   return (
     <AppWrapper> {/* Handles the persistent background */}
       <Header />
-      <main> {/* Content will scroll over the fixed background */}
-        <Hero />
+      <main style={{ flexGrow: 1, position: 'relative', zIndex: 1 }}>         <Hero />
         <MenuSection />
         <AboutSection />
         <BookingSection />
