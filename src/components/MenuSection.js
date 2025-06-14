@@ -20,6 +20,14 @@ const MenuSection = () => {
         menuItemCard: { // Using global .content-card style from App.css
             textAlign: 'center',
         },
+        // NEW STYLE FOR IMAGES
+        itemImage: {
+            width: '100%', // Make image take full width of its card
+            height: '200px', // Set a fixed height for consistency (adjust as needed)
+            objectFit: 'cover', // This is the key: crop the image to fit the container
+            borderRadius: '8px 8px 0 0', // Match card border-radius, or adjust
+            marginBottom: '15px', // Space between image and text
+        },
         itemName: {
             fontFamily: "'Bebas Neue', cursive", fontSize: '1.8rem',
             color: colors.primaryYellow, marginBottom: '5px',
@@ -43,7 +51,8 @@ const MenuSection = () => {
             <div style={styles.itemsGrid}>
                 {menu.items.map((item, index) => (
                     <div key={index} style={styles.menuItemCard} className="content-card">
-                        {item.imageUrl && <img src={process.env.PUBLIC_URL + item.imageUrl} alt={item.name} />}
+                        {/* Apply the new itemImage style here */}
+                        {item.imageUrl && <img src={process.env.PUBLIC_URL + item.imageUrl} alt={item.name} style={styles.itemImage} />}
                         <h3 style={styles.itemName}>{item.name}</h3>
                         {item.price && <p style={styles.itemPrice}>{item.price}</p>}
                         <p style={styles.itemDescription}>{item.description}</p>
@@ -57,7 +66,8 @@ const MenuSection = () => {
                     <div style={styles.itemsGrid}>
                         {menu.drinks.map((drink, index) => (
                             <div key={`drink-${index}`} style={styles.menuItemCard} className="content-card">
-                                {drink.imageUrl && <img src={process.env.PUBLIC_URL + drink.imageUrl} alt={drink.name} />}
+                                {/* And here for drinks */}
+                                {drink.imageUrl && <img src={process.env.PUBLIC_URL + drink.imageUrl} alt={drink.name} style={styles.itemImage} />}
                                 <h4 style={styles.itemName}>{drink.name}</h4>
                                 <p style={styles.itemDescription}>{drink.description}</p>
                             </div>

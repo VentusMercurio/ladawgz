@@ -24,8 +24,8 @@ const siteConfig = {
         { name: "Home", path: "/" }, // Or link to #hero
         { name: "Menu", path: "/#menu" }, // Use hash links for single page initially
         { name: "About", path: "/#about" },
-        { name: "Book Us", path: "/#bookings" },
-        { name: "Merch", externalUrl: "YOUR_SHOPIFY_STORE_URL_HERE" }, // <<<< REPLACE
+        { name: "Book Us", externalUrl: "https://ladawgz-bookings.carrd.co/" }, 
+        { name: "Merch", externalUrl: "https://ladawgz.myshopify.com/" }, // <<<< REPLACE
         { name: "Contact", path: "/#contact" },
     ],
 
@@ -43,27 +43,21 @@ const siteConfig = {
                 name: "The L.A. Dawg",
                 price: "$6", // Example, adjust as needed
                 description: "The iconic Los Angeles Bacon-Wrapped Hot Dog. A street food legend.",
-                imageUrl: "/assets/images/menu-la-dawg.jpg", // <<<< Replace with actual image
+                imageUrl: "/assets/images/ladawg.png", // <<<< Replace with actual image
             },
             {
-                name: "The Fairfax",
-                price: "$7",
-                description: "Inspired by LA's foodie scene. Beef dog, spicy aioli, pickled onions, cotija cheese.",
-                imageUrl: "/assets/images/menu-fairfax.jpg", // <<<< Replace
+                name: "Vegan Dawg",
+                price: "$8",
+                description: "Our own creation. Chorizo inspired flavor, 26g of protein in every dawg. For the gym rats and health conscious.",
+                imageUrl: "/assets/images/vegan.png", // <<<< Replace
             },
             {
-                name: "Elote Dog",
-                price: "$7.50",
-                description: "Grilled corn, mayo, chili powder, lime, and cotija cheese on a classic dawg.",
-                imageUrl: "/assets/images/menu-elote-dog.jpg", // <<<< Replace
+                name: "Horchata",
+                price: "$5",
+                description: "Our traditional ice cold horchata is a Mexican classic: hints of cinnamon and vanilla in a creamy and refreshing rice-flavored drink.",
+                imageUrl: "/assets/images/horchata.png", // <<<< Replace
             },
             // Add more menu items
-        ],
-        // You can add a "Sides" or "Drinks" array here too
-        drinksIntro: "And for thirst-quenching refreshment...",
-        drinks: [
-             { name: "Horchata", description: "Creamy and refreshing rice-flavored drink.", imageUrl: "/assets/images/drink-horchata.jpg"}, // <<<< Replace
-             { name: "Agua Frescas", description: "Rotating fresh fruit waters (Jamaica, Mango, Sandia).", imageUrl: "/assets/images/drink-agua-fresca.jpg"}, // <<<< Replace
         ]
     },
 
@@ -80,10 +74,7 @@ const siteConfig = {
         heading: "Book L.A. Dawgz For Your Event!",
         text: "Bring the flavor of L.A. to your next party, corporate event, festival, or pop-up! We offer flexible catering and on-site cooking options. Let's make your event unforgettable.",
         ctaText: "Inquire About Booking",
-        contactLink: "/#contact", // Link to contact section/form
-        // Or directly use a Formspree link for booking inquiries
-        // formspreeBookingEndpoint: "YOUR_LADawgz_BOOKING_FORMSPREE_ID",
-    },
+        contactLink: "https://ladawgz-bookings.carrd.co/",    },
     
     merch: {
         anchorId: "merch", // Not strictly needed if it's just a link out
@@ -98,7 +89,7 @@ const siteConfig = {
         anchorId: "contact",
         heading: "Hit Us Up!",
         phone: "(562) 714-4883", // (555) 588-3294
-        email: "ladawgz51@gmail.com",
+        email: "ladawgz518@gmail.com",
         socialPrompt: "Follow the flavor journey:",
     },
 
